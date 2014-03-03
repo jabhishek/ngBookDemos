@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\sinon-1.8.1.js" />
     <Content Include="Scripts\version.json" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
@@ -78,7 +79,6 @@
   <ItemGroup>
     <Content Include="App\1.DataBinding\Clock\Clock.html" />
     <Content Include="App\1.DataBinding\Clock\Clock.js" />
-    <Content Include="index.html" />
     <Content Include="karma.conf.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />

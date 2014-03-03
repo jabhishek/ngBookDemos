@@ -16,7 +16,7 @@ module.exports = function(config) {
     files: [
          'Scripts/angular.js',
          'Scripts/angular*.js',
-
+         'Scripts/sinon-1.8.1.js',
          'App/app.js',
          'App/**/*.js',
          'App/**/**/*.js',

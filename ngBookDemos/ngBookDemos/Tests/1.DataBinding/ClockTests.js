@@ -13,6 +13,6 @@ describe("Clock", function () {
         var mockEvents = {};
         var ctrl = $controllerConstructor("ClockController", { $scope: scope });
 
-        expect(scope.name).toBe("Abhishek Jain");
+        expect(scope.name).toBe("Abhishek Jain"); 
     });
 });
