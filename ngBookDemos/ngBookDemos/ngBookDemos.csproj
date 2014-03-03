@@ -76,8 +76,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\1.DataBinding\Clock.html" />
+    <Content Include="App\1.DataBinding\Clock\Clock.html" />
+    <Content Include="App\1.DataBinding\Clock\Clock.js" />
     <Content Include="index.html" />
+    <Content Include="karma.conf.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
@@ -342,6 +344,7 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Tests\1.DataBinding\ClockTests.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
