@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="clockApp">
+<head>
+    <title></title>
+</head>
+<body>
+    <div data-ng-controller="ClockController">
+        {{ name }}
+    </div>
+    <script src="../../Scripts/angular.js"></script>
+    <script type="text/javascript">
+        var app = angular.module("clockApp", []);
+
+        app.controller("ClockController", ["$scope", function($scope) {
+            $scope.name = "Hello";
+        }]);
+
+    </script>
+</body>
+</html>
