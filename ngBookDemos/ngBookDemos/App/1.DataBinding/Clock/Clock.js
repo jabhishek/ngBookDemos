@@ -6,7 +6,7 @@ app.controller("ClockController", ["$scope", "$interval", "$filter", function ($
         now: new Date()
     };
     var updateClock = function () {
-        $scope.clock.now = new Date()
+        $scope.clock.now = new Date();
     };
     $interval(function () {
         updateClock();

@@ -1,6 +1,8 @@
-﻿'use strict';
+﻿
 
 describe("Clock", function () {
+    'use strict';
+
     var scope, $controllerConstructor;
 
     beforeEach(module("clockApp"));
