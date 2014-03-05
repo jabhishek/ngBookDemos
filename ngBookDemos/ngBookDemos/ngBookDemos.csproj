@@ -57,6 +57,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\5_Expressions\interpolate.html" />
+    <Content Include="App\5_Expressions\interpolate.js" />
+    <Content Include="App\5_Expressions\Parser.html" />
+    <Content Include="App\5_Expressions\Parser.js" />
     <Content Include="protractorTestConf.js" />
     <Content Include="Scripts\sinon-1.8.1.js" />
     <Content Include="Scripts\version.json" />
@@ -347,6 +351,7 @@
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="Tests\1.DataBinding\Clock\Clocke2eTests.js" />
     <Content Include="Tests\1.DataBinding\Clock\ClockTests.js" />
+    <Content Include="Tests\5_Expressions\Parsere2eTests.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
