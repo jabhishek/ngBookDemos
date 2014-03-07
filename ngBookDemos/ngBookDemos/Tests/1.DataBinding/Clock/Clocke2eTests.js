@@ -10,7 +10,7 @@ describe('angularjs homepage', function () {
         expect(greeting.getText()).toEqual('Hello Abhishek!');
     });
 });
-describe('clock page', function () {
+xdescribe('clock page', function () {
     it('should display name of the user', function () {
         browser.get('http://localhost:57051/App/1.DataBinding/Clock/Clock.html');
 
@@ -18,7 +18,7 @@ describe('clock page', function () {
         expect(greeting.getText()).toEqual('Abhishek Jain');
     });
 
-    xit("should change the time every second", function () {
+    it("should change the time every second", function () {
         browser.get('http://localhost:57051/App/1.DataBinding/Clock/Clock.html');
         var mockEvents = {};
         var ctrl = $controllerConstructor("ClockController", { $scope: scope });

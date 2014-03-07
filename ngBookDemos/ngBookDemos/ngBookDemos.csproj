@@ -351,13 +351,16 @@
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="Tests\1.DataBinding\Clock\Clocke2eTests.js" />
     <Content Include="Tests\1.DataBinding\Clock\ClockTests.js" />
+    <Content Include="Tests\5_Expressions\interpolate2eTests.js" />
     <Content Include="Tests\5_Expressions\Parsere2eTests.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App\6_Filters\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
