@@ -61,6 +61,7 @@
     <Content Include="App\5_Expressions\interpolate.js" />
     <Content Include="App\5_Expressions\Parser.html" />
     <Content Include="App\5_Expressions\Parser.js" />
+    <Content Include="App\6_Filters\formValidation.html" />
     <Content Include="App\6_Filters\filters.html" />
     <Content Include="App\6_Filters\filters.js" />
     <Content Include="protractorTestConf.js" />

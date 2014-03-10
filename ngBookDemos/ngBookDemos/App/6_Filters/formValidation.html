@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="myApp">
+<head>
+    <title></title>
+    <style>
+        input.ng-valid {
+            background: rgba(152, 251, 187, 0.79);
+        }
+
+        input.ng-invalid {
+            background: rgba(251, 152, 161, 0.79);
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <form name="testForm" novalidate>
+            <input type="text" name="name" data-ng-model="name" data-ng-minlength="5" required/>
+        </form>
+    </div>
+    <script src="../../Scripts/angular.js"></script>
+</body>
+</html>
