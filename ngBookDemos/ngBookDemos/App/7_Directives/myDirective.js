@@ -1,8 +1,8 @@
 ﻿var app = angular.module("myApp", [])
     .directive("myDirective", function () {
         return {
-            restrict: "E",
+            restrict: "EAC",
             replace: true,
-            template: '<a href="http://google.com">Click me to go to Google</a>'
+            template: '<div><a href="http://google.com" target="_blank">Click me to go to Google</a></div>'
         };
     });
