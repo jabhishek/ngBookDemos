@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <title></title>
+</head>
+<body>
+
+    Can access {{ rootProperty }}
+
+    <div data-ng-controller="ParentController">
+        Can access
+        <ul>
+            <li>{{ rootProperty }}</li>
+            <li>{{ parentProperty }}</li>
+        </ul>
+
+        <div data-ng-controller="ChildController">
+            Can access
+            <ul>
+                <li>{{ rootProperty }}</li>
+                <li>{{ parentProperty }}</li>
+                <li>{{ childProperty }}</li>
+            </ul>
+            <p>{{ fullSentenceFromChild }}</p>
+        </div>
+    </div>
+    <script src="../../Scripts/angular.js"></script>
+    <script src="current-scope-intro.js"></script>
+</body>
+</html>
