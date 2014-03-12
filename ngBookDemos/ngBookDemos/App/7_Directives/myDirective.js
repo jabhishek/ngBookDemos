@@ -10,7 +10,7 @@
         return {
             restrict: "A",
             scope: {
-                myUrl: "@",
+                myUrl: "=",
                 myText: "@"
             },
             replace: true,
