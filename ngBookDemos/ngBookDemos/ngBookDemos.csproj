@@ -68,6 +68,8 @@
     <Content Include="App\7_Directives\current-scope-intro.js" />
     <Content Include="App\7_Directives\Directives.html" />
     <Content Include="App\7_Directives\myDirective.js" />
+    <Content Include="App\7_Directives\Scope-inheritance.html" />
+    <Content Include="App\9_Directives explained\directive-1.html" />
     <Content Include="protractorTestConf.js" />
     <Content Include="Scripts\sinon-1.8.1.js" />
     <Content Include="Scripts\version.json" />

@@ -14,7 +14,7 @@
                 myText: "@"
             },
             replace: true,
-            template: '<div><a href=http://{{myUrl}} target="_blank">{{myText}}</a></div>',
+            template: '<div><a ng-href={{myUrl}} target="_blank">{{myText}}</a></div>',
             controller: function($scope) {
                 $log.info($scope.myUrl);
             }
