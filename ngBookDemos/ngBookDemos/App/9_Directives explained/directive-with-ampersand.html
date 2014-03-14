@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style></style>
+</head>
+<body data-ng-app="myApp">
+    <div data-ng-controller="MyController">
+        <my-clock></my-clock>
+        <div data-user-info="" data-user-name="data" data-click="printMessage(data)"></div>
+    </div>
+    <div data-ng-controller="SecondController">
+        <div data-user-info="" data-user-name="otherData" data-click="logMessage(otherData)"></div>
+    </div>
+    <script src="../../Scripts/angular.js"></script>
+    <script>
+        var app = angular.module("myApp", [])
+            .controller("MyController", ["$scope", "$log", function($scope, $log) {
+                $scope.data = {
+                    firstName: "Abhishek" ,
+                    lastName: "Jain" ,
+                };
+
+                $scope.printMessage = function (data) {
+                    $log.info("From MyController:");
+                    $log.info(data);
+                };
+            }])
+            .controller("SecondController", ["$scope", "$log", function($scope, $log) {
+                $scope.otherData = {
+                    firstName: "Vanita" ,
+                    lastName: "Jain" ,
+                };
+
+                $scope.logMessage = function (data) {
+                    console.log("From SecondController:");
+                    console.log(data);
+                };
+            }])
+            .directive("userInfo", function() {
+                return {
+                    restrict: "A",
+                    scope: {
+                        userName: "=",
+                        click: "&"
+                    },
+                    template: "<div ng-click='click(userName)'>{{userName.firstName + ' ' + userName.lastName}}</div>"
+                };
+            });
+    </script>
+</body>
+</html>
