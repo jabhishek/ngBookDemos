@@ -7,37 +7,34 @@
 <body data-ng-app="myApp">
     <div data-ng-controller="MyController">
         <my-clock></my-clock>
-        <div data-user-info="" data-user-name="data" data-click="printMessage(data)"></div>
-    </div>
-    <div data-ng-controller="SecondController">
-        <div data-user-info="" data-user-name="otherData" data-click="logMessage(otherData)"></div>
+        <div>
+            <div data-ng-repeat="user in data.users">
+                <div data-user-info="" data-user-name="user" data-click="printMessage(user)"></div>
+            </div>
+        </div>
+        
     </div>
     <script src="../../Scripts/angular.js"></script>
     <script>
         var app = angular.module("myApp", [])
-            .controller("MyController", ["$scope", "$log", function($scope, $log) {
+            .controller("MyController", ["$scope", "$log", function ($scope, $log) {
                 $scope.data = {
-                    firstName: "Abhishek" ,
-                    lastName: "Jain" ,
+                    users:
+                        [{
+                            firstName: "Abhishek",
+                            lastName: "Jain",
+                        }, {
+                            firstName: "Vanita",
+                            lastName: "Jain",
+                        }]
                 };
 
-                $scope.printMessage = function (data) {
+                $scope.printMessage = function (user) {
                     $log.info("From MyController:");
-                    $log.info(data);
+                    $log.info("User: " + user.firstName + " " + user.lastName);
                 };
             }])
-            .controller("SecondController", ["$scope", "$log", function($scope, $log) {
-                $scope.otherData = {
-                    firstName: "Vanita" ,
-                    lastName: "Jain" ,
-                };
-
-                $scope.logMessage = function (data) {
-                    console.log("From SecondController:");
-                    console.log(data);
-                };
-            }])
-            .directive("userInfo", function() {
+            .directive("userInfo", function () {
                 return {
                     restrict: "A",
                     scope: {
