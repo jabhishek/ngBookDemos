@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body data-ng-app="myApp">
+    <div>
+        <span link>Sometext</span>
+    </div>
+    <script src="../../Scripts/angular.js"></script>
+    <script>
+        var app = angular.module("myApp", [])
+            .directive("link", function() {
+                return {                    
+                    restrict: "EA",
+                    transclude: true,
+                    controller: function($scope, $element, $transclude, $log) {
+                        $transclude(function (clone) {
+                            var link = angular.element("<a>");
+                            link.attr("href", clone.text());
+                            link.text(clone.text());
+                            $element.append(link);
+                            $log.info(clone);
+                        });
+                    }
+                };
+            });
+    </script>
+</body>
+</html>
