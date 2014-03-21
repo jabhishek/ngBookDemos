@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body data-ng-app="myApp">
+    <div>
+        <span link>Sometext</span>
+    </div>
+    <script src="../../Scripts/angular.js"></script>
+    <script>
+        var app = angular.module("myApp", [])
+            .directive("link", function ($log, $interval) {
+                return {
+                    restrict: "EA",
+                    link: function(scope, tElement, tAttrs, controller) {
+                        $log.info(scope);
+                        $log.info(tElement);
+                        $log.info(tAttrs);
+                        $log.info(controller);
+
+                        $interval(function () {
+                            tElement.text(new Date());
+                        }, 1000);
+
+                        tElement.on('click', function() {
+                            tElement.attr('color', 'red');
+                            $log.info(this);
+                        });
+                    }
+                };
+            });
+    </script>
+</body>
+</html>

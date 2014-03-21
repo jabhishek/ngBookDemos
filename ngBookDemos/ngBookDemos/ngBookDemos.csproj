@@ -67,7 +67,9 @@
     <Content Include="App\7_Directives\current-scope-intro.html" />
     <Content Include="App\7_Directives\current-scope-intro.js" />
     <Content Include="App\7_Directives\Directives.html" />
+    <Content Include="App\7_Directives\LinkFn.html" />
     <Content Include="App\7_Directives\myDirective.js" />
+    <Content Include="App\7_Directives\ngModel.html" />
     <Content Include="App\7_Directives\transcludefn.html" />
     <Content Include="protractorTestConf.js" />
     <Content Include="Scripts\sinon-1.8.1.js" />

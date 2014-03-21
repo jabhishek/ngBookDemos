@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body data-ng-app="myApp">
+    <div data-ng-controller="MyController">
+        <input data-my-directive ng-model="data.name" />
+        <input data-my-other-directive data-initial="Vanita" ng-model="data.name" />
+    </div>
+    <script src="../../Scripts/angular.js"></script>
+    <script>
+        var app = angular.module("myApp", [])
+            .directive("myDirective", function ($log, $interval) {
+                return {
+                    restrict: "A",
+                    require: 'ngModel',
+                    link: function (scope, tElement, tAttrs, controller) {
+                        $log.info(scope);
+                        $log.info(tElement);
+                        $log.info(tAttrs);
+                        $log.info(controller);
+
+                        tElement.on('focus', function () {
+                            controller.$setViewValue("Vanita");
+                            controller.$render();
+                            $log.info(controller);
+                        });
+                    }
+                };
+            })
+            .directive("myOtherDirective", function ($log, $interval) {
+                return {
+                    restrict: "A",
+                    require: 'ngModel',
+                    scope: {
+                        initial: "@"
+                    },
+                    link: function (scope, tElement, tAttrs, controller) {
+                        $log.info(scope);
+                        $log.info(tElement);
+                        $log.info(tAttrs);
+                        $log.info(controller);
+
+                        tElement.on('focus', function () {
+                            controller.$setViewValue("Vanita");
+                            controller.$render();
+                            $log.info(controller);
+                        });
+                    }
+                };
+            });
+
+        app.controller("MyController", ["$scope", function ($scope) {
+            $scope.data = {
+                name: "Abhishek Jain"
+            };
+        }]);
+    </script>
+</body>
+</html>
