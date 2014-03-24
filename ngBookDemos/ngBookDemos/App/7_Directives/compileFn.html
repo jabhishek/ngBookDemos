@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body data-ng-app="myApp">
+    <div>
+        <span link>Sometext</span>
+    </div>
+    <script src="../../Scripts/angular.js"></script>
+    <script>
+        var app = angular.module("myApp", [])
+            .directive("link", function ($log, $interval) {
+                return {
+                    restrict: "EA",
+                    compile: function(tElement, tAttrs, transclude) {
+                        $log.info(tElement);
+                        $log.info(tAttrs);
+                        $log.info(transclude);
+
+                        var link = angular.element("<a>");
+                        link.attr('href', 'http://google.com');
+                        link.attr('target', '_blank');
+                        link.text(tElement.text());
+
+                        link.on("click", function () {
+                            $log.info("Link clicked");
+                        });
+
+                        tElement.replaceWith(link);
+
+                        
+                    }
+                };
+            });
+    </script>
+</body>
+</html>

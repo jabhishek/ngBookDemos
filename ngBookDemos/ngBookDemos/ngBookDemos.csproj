@@ -67,6 +67,7 @@
     <Content Include="App\7_Directives\current-scope-intro.html" />
     <Content Include="App\7_Directives\current-scope-intro.js" />
     <Content Include="App\7_Directives\Directives.html" />
+    <Content Include="App\7_Directives\compileFn.html" />
     <Content Include="App\7_Directives\LinkFn.html" />
     <Content Include="App\7_Directives\myDirective.js" />
     <Content Include="App\7_Directives\Scope-inheritance.html" />
