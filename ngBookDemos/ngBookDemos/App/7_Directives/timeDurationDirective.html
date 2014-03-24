@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <title>Time Duration Directive - Exploring ngModel</title>
+</head>
+<body>
+    <h3>Time Duration Directive - Exploring ngModel</h3>
+    <a href="http://www.chroder.com/2014/02/01/using-ngmodelcontroller-with-custom-directives/">source</a>
+    
+    <time-duration data-ng-model="email_notify_pref"></time-duration>
+
+    <script src="../../Scripts/angular.js"></script>
+    <script>
+        var app = angular.module("myApp", [])
+                .directive("timeDuration", [function () {
+                    var tpl = "<div> \
+                    <input type='text' ng-model='num' size='80'/> \
+                    <select ng-model='unit'> \
+                        <option value='secs'>Seconds</option> \
+                        <option value='min'>Minutes</option> \
+                        <option value='hours'>Hours</option> \
+                        <option value='days'>Days</option> \
+                    </select> \
+                        </div>";
+                    return {
+                        restrict: "E",
+                        template: tpl,
+                        require: 'ngModel',
+                        replace: true,
+                        link: function(scope, element, attrs, ngModelCtrl) {
+                            
+                        }
+                    };
+                }]);
+    </script>
+</body>
+</html>
