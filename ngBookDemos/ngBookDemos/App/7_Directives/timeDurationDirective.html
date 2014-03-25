@@ -3,12 +3,13 @@
 <head>
     <title>Time Duration Directive - Exploring ngModel</title>
 </head>
-<body>
+<body ng-init="email_notify_pref = 300">
     <h3>Time Duration Directive - Exploring ngModel</h3>
     <a href="http://www.chroder.com/2014/02/01/using-ngmodelcontroller-with-custom-directives/">source</a>
-    
-    <time-duration data-ng-model="email_notify_pref"></time-duration>
 
+    <time-duration data-ng-model="email_notify_pref"></time-duration>
+    Value from model = {{email_notify_pref}}
+    <input ng-model="email_notify_pref" type="text" />
     <script src="../../Scripts/angular.js"></script>
     <script>
         var app = angular.module("myApp", [])
@@ -16,8 +17,8 @@
                     var tpl = "<div> \
                     <input type='text' ng-model='num' size='80'/> \
                     <select ng-model='unit'> \
-                        <option value='secs'>Seconds</option> \
-                        <option value='min'>Minutes</option> \
+                        <option value='seconds'>Seconds</option> \
+                        <option value='minutes'>Minutes</option> \
                         <option value='hours'>Hours</option> \
                         <option value='days'>Days</option> \
                     </select> \
@@ -27,11 +28,54 @@
                         template: tpl,
                         require: 'ngModel',
                         replace: true,
-                        link: function(scope, element, attrs, ngModelCtrl) {
-                            
+                        link: function (scope, element, attrs, ngModelCtrl) {
+                            var multiplierMap = { seconds: 1, minutes: 60, hours: 3600, days: 86400 };
+                            var multiplierTypes = ['seconds', 'minutes', 'hours', 'days'];
+
+                            scope.$watch('unit + num', function () {
+                                ngModelCtrl.$setViewValue({ unit: scope.unit, num: scope.num });
+                            });
+
+                            ngModelCtrl.$parsers.push(function (viewValue) {
+                                var unit = viewValue.unit;
+                                var num = viewValue.num;
+
+                                var multiplier = multiplierMap[unit];
+                                return multiplier * num;
+                            });
+
+                            ngModelCtrl.$formatters.push(function (modelValue) {
+                                var unit = 'minutes', num = 0, i, unitName;
+
+                                modelValue = parseInt(modelValue || 0);
+                                if (modelValue) {
+                                    for (i = multiplierTypes.length; i >= 0; i--) {
+                                        unitName = multiplierTypes[i];
+                                        if (modelValue % multiplierMap[unitName] === 0) {
+                                            unit = unitName;
+                                            break;
+                                        }
+                                    }
+                                    num = modelValue / multiplierMap[unit];
+                                }
+
+                                return {
+                                    unit: unit,
+                                    num: num
+                                };
+                            });
+
+                            ngModelCtrl.$render = function () {
+                                scope.unit = ngModelCtrl.$viewValue.unit;
+                                scope.num = ngModelCtrl.$viewValue.num;
+                            };
                         }
+
+
+
                     };
                 }]);
     </script>
 </body>
+
 </html>
